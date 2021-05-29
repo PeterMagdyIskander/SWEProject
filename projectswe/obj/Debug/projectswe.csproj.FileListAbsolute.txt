@@ -1,0 +1,26 @@
+C:\Users\abade\source\repos\projectswe\projectswe\bin\Debug\projectswe.exe.config
+C:\Users\abade\source\repos\projectswe\projectswe\bin\Debug\projectswe.exe
+C:\Users\abade\source\repos\projectswe\projectswe\bin\Debug\projectswe.pdb
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.csprojAssemblyReference.cache
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.signinform.resources
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.Properties.Resources.resources
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.csproj.GenerateResource.cache
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.csproj.CoreCompileInputs.cache
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.exe
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.pdb
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.signupform.resources
+C:\Users\abade\source\repos\projectswe\projectswe\bin\Debug\Oracle.DataAccess.dll
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.csproj.CopyComplete
+C:\Users\abade\source\repos\projectswe\projectswe\obj\Debug\projectswe.Form3.resources
+D:\3_second_semester\software engineering\SWEProject\projectswe\bin\Debug\projectswe.exe.config
+D:\3_second_semester\software engineering\SWEProject\projectswe\bin\Debug\projectswe.exe
+D:\3_second_semester\software engineering\SWEProject\projectswe\bin\Debug\projectswe.pdb
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.csprojAssemblyReference.cache
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.signinform.resources
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.signupform.resources
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.Form3.resources
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.Properties.Resources.resources
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.csproj.GenerateResource.cache
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.csproj.CoreCompileInputs.cache
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.exe
+D:\3_second_semester\software engineering\SWEProject\projectswe\obj\Debug\projectswe.pdb
