@@ -1,4 +1,4 @@
-﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,7 +56,7 @@ namespace projectswe
                 if (dr[0].Equals(passwordbox.Text))
                 {
 
-                    var f = new Form3();
+                    var f = new Form3(idbox.Text.ToString());
                     f.Show();
                     this.Hide();
 
@@ -72,6 +72,10 @@ namespace projectswe
             dr.Close();
         }
 
-       
+        private void doctorsignin_Click(object sender, EventArgs e)
+        {
+            var f = new doctorform();
+            f.Show();
+        }
     }
 }
