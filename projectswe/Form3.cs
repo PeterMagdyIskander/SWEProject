@@ -1,4 +1,4 @@
-﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +13,18 @@ namespace projectswe
 {
     public partial class Form3 : Form
     {
+        string userid;
         string ordb = "Data source=orcl;User Id=scott; Password=tiger;";
         OracleConnection conn;
         OracleDataAdapter adapter;
         OracleCommandBuilder commandBuilder;
         DataSet ds;
-        public Form3()
+        OracleDataAdapter adapter1;
+        OracleCommandBuilder commandBuilder1;
+        DataSet ds1;
+        public Form3(string id)
         {
+            userid = id;
             InitializeComponent();
         }
 
@@ -35,6 +40,7 @@ namespace projectswe
         {
             dayscombo.Text="";
             busylabel.Text = "avelable places : ";
+            bookbtn.Enabled = false;
             getdoctordatainlabel();
             putworkingdaysandav();
         }
@@ -53,6 +59,8 @@ namespace projectswe
         }
         private void getdoctordatainlabel()
         {
+            if (doctors.SelectedItem == null)
+                return;
             OracleCommand cmd = new OracleCommand();
             cmd.Connection = conn;
             cmd.CommandText = "getdoctorsdata";
@@ -89,6 +97,7 @@ namespace projectswe
         private void dayscombo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+           
             updatedaysavlabel();
         }
         private void disconnectedmodeinit()
@@ -98,7 +107,12 @@ namespace projectswe
             ds = new DataSet();
             adapter.Fill(ds);
 
-            
+            string cmdstr1 = "select * from DOCTORRESERV";
+            adapter1 = new OracleDataAdapter(cmdstr1, ordb);
+            ds1 = new DataSet();
+            adapter1.Fill(ds1);
+
+
 
         }
         private void updatedaysavlabel()
@@ -114,6 +128,14 @@ namespace projectswe
             while (reader.Read())
             {
                 busylabel.Text = "avelable places : " + reader[0].ToString();
+                if(int.Parse((reader[0].ToString()))<=0)
+                {
+                    bookbtn.Enabled = false;
+                }
+                else
+                {
+                    bookbtn.Enabled = true;
+                }
 
 
             }
@@ -122,22 +144,53 @@ namespace projectswe
         private void bookbtn_Click(object sender, EventArgs e)
         {
 
-            DataColumn dc1 = ds.Tables[0].Columns[0];
-            DataColumn dc2 = ds.Tables[0].Columns[1];
+            try
+            {
+                DataColumn dc1 = ds.Tables[0].Columns[0];
+                DataColumn dc2 = ds.Tables[0].Columns[1];
 
-            ds.Tables[0].PrimaryKey = new DataColumn[] { dc1, dc2 };
-            object[] key = new object[2];
-            key[0] = doctors.SelectedItem.ToString();
-            key[1] = dayscombo.Text.ToString();
-            DataRow r = ds.Tables[0].Rows.Find(key);
-           
-            
-            int x=int.Parse(r["userbooked"].ToString())+1;
-            r["userbooked"] = x;
-            commandBuilder = new OracleCommandBuilder(adapter);
-            adapter.Update(ds.Tables[0]);
+
+
+                object[] rowdara = new object[3];
+                rowdara[0] = userid;
+                rowdara[1] = doctors.SelectedItem.ToString();
+                rowdara[2] = dayscombo.Text.ToString();
+
+                ds1.Tables[0].Rows.Add(rowdara);
+                commandBuilder1 = new OracleCommandBuilder(adapter1);
+                adapter1.Update(ds1.Tables[0]);
+
+
+
+                ds.Tables[0].PrimaryKey = new DataColumn[] { dc1, dc2 };
+                object[] key = new object[2];
+                key[0] = doctors.SelectedItem.ToString();
+                key[1] = dayscombo.Text.ToString();
+                DataRow r = ds.Tables[0].Rows.Find(key);
+                int x = int.Parse(r["userbooked"].ToString()) + 1;
+                r["userbooked"] = x;
+                commandBuilder = new OracleCommandBuilder(adapter);
+                adapter.Update(ds.Tables[0]);
+
+
+
+               
+                
+            }
+            catch
+            {
+                MessageBox.Show("already registerd");
+            }
             updatedaysavlabel();
-            
+
+
+
+        }
+
+        private void myreserv_Click(object sender, EventArgs e)
+        {
+            var f = new my_reservations(userid);
+            f.Show();
 
         }
     }
